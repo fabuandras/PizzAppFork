@@ -1,6 +1,8 @@
 package pizzapp;
 
 public class PizzApp extends javax.swing.JFrame {
+    
+    int meret = 1; //32 cm
 
     public PizzApp() {
         initComponents();
@@ -283,7 +285,12 @@ public class PizzApp extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
-        // TODO add your handling code here:
+        double meret = .75; //25 cm
+        
+        int vegsoAr = pizzaAlapAr * meret + extrak;
+        vegsoAr *= db; //vegsoAr = vegsoAr * db
+        
+        lblAr.setText(vegsoAr + "");
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     public static void main(String args[]) {

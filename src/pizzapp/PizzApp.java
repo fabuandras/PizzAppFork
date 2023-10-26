@@ -7,6 +7,9 @@ public class PizzApp extends javax.swing.JFrame {
     int extrak;
     double vegsoAr;
     double meret;
+    int extra1;
+    int extra2;
+    int extra3;
 
     public PizzApp() {
         initComponents();
@@ -14,11 +17,11 @@ public class PizzApp extends javax.swing.JFrame {
         /* 2 = index */
         pizzaAlapAr = 1750;
         
-        int meret = 1; //32 cm
+        meret = 1; //32 cm
         
-        int extra1 = 0;
-        int extra2 = 0;
-        int extra3 = 0;
+        extra1 = 0;
+        extra2 = 0;
+        extra3 = 0;
         extrak = extra1 + extra2 + extra3;
         
         db = 1;
@@ -279,9 +282,9 @@ public class PizzApp extends javax.swing.JFrame {
         
         meret = 1; //32 cm
         
-        int extra1 = 0;
-        int extra2 = 0;
-        int extra3 = 0;
+        extra1 = 0;
+        extra2 = 0;
+        extra3 = 0;
         extrak = extra1 + extra2 + extra3;
         
         db = 1;

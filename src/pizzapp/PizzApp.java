@@ -158,10 +158,25 @@ public class PizzApp extends javax.swing.JFrame {
         pnlExtrak.setBorder(javax.swing.BorderFactory.createTitledBorder("Extrák"));
 
         chbSajt.setText("sajt");
+        chbSajt.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                chbSajtStateChanged(evt);
+            }
+        });
 
         chbHagyma.setText("hagyma");
+        chbHagyma.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                chbHagymaStateChanged(evt);
+            }
+        });
 
         chbAnanasz.setText("ananász");
+        chbAnanasz.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                chbAnanaszStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlExtrakLayout = new javax.swing.GroupLayout(pnlExtrak);
         pnlExtrak.setLayout(pnlExtrakLayout);
@@ -280,15 +295,6 @@ public class PizzApp extends javax.swing.JFrame {
             pizzaAlapAr = 2100;
         }
         
-        meret = 1; //32 cm
-        
-        extra1 = 0;
-        extra2 = 0;
-        extra3 = 0;
-        extrak = extra1 + extra2 + extra3;
-        
-        db = 1;
-        
         szamitasEsKiiras();
     }//GEN-LAST:event_cmbValaszthatoPizzakActionPerformed
 
@@ -299,7 +305,7 @@ public class PizzApp extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     private void szamitasEsKiiras() {
-        vegsoAr = pizzaAlapAr * meret + extrak;
+        vegsoAr = pizzaAlapAr * meret + extra1 + extra2 + extra3;
         vegsoAr *= db; //vegsoAr = vegsoAr * db
         
         lblAr.setText(vegsoAr + "");
@@ -310,6 +316,39 @@ public class PizzApp extends javax.swing.JFrame {
         
         szamitasEsKiiras();
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
+
+    private void chbSajtStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chbSajtStateChanged
+        if(chbSajt.isSelected() == true)
+        {
+            extra1 = 250;
+        }else{
+            extra1 = 0;
+        }
+        
+        szamitasEsKiiras();
+    }//GEN-LAST:event_chbSajtStateChanged
+
+    private void chbHagymaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chbHagymaStateChanged
+        if(chbHagyma.isSelected() == true)
+        {
+            extra2 = 250;
+        }else{
+            extra2 = 0;
+        }
+        
+        szamitasEsKiiras();
+    }//GEN-LAST:event_chbHagymaStateChanged
+
+    private void chbAnanaszStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chbAnanaszStateChanged
+        if(chbAnanasz.isSelected() == true)
+        {
+            extra3 = 250;
+        }else{
+            extra3 = 0;
+        }
+        
+        szamitasEsKiiras();
+    }//GEN-LAST:event_chbAnanaszStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

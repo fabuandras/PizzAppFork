@@ -120,6 +120,7 @@ public class PizzApp extends javax.swing.JFrame {
 
         pnlFizetendo.setBorder(javax.swing.BorderFactory.createTitledBorder("Fizetendő"));
 
+        lblfizDb.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblfizDb.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblfizDb.setText("db:");
 

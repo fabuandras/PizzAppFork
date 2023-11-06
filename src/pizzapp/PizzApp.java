@@ -10,6 +10,12 @@ public class PizzApp extends javax.swing.JFrame {
     int extra1;
     int extra2;
     int extra3;
+    String osszegzes1 = "Nincs típus választva!";
+    int osszegzes2;
+    String osszegzes3 = "Nincs méret választva!";
+    String feltet1;
+    String feltet2;
+    String feltet3;
 
     public PizzApp() {
         initComponents();
@@ -85,7 +91,6 @@ public class PizzApp extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(rdbMeret32);
-        rdbMeret32.setSelected(true);
         rdbMeret32.setText("32 cm");
         rdbMeret32.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -211,6 +216,11 @@ public class PizzApp extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txaOsszesito);
 
         btnRendel.setText("Megrendelem");
+        btnRendel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRendelActionPerformed(evt);
+            }
+        });
 
         lblOsszesito.setText("Összestő:");
 
@@ -292,12 +302,16 @@ public class PizzApp extends javax.swing.JFrame {
         
         if(pizzaIndex == 0){
             pizzaAlapAr = 1590;
+            osszegzes1 = "A választott pizza: Margherita";
         }else if(pizzaIndex == 1){
             pizzaAlapAr = 1680;
+            osszegzes1 = "A választott pizza: Hawaii";
         }else if(pizzaIndex == 2){
             pizzaAlapAr = 1750;
+            osszegzes1 = "A választott pizza: Songoku";
         }else if(pizzaIndex == 3){
             pizzaAlapAr = 2100;
+            osszegzes1 = "A választott pizza: Diavola";
         }
         
         szamitasEsKiiras();
@@ -305,6 +319,7 @@ public class PizzApp extends javax.swing.JFrame {
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
         meret = .75; //25 cm
+        osszegzes3 = "mérete: 25 cm";
         
         szamitasEsKiiras();
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
@@ -318,6 +333,7 @@ public class PizzApp extends javax.swing.JFrame {
 
     private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
         meret = 1; //32 cm
+        osszegzes3 = "mérete: 32 cm";
         
         szamitasEsKiiras();
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
@@ -360,6 +376,29 @@ public class PizzApp extends javax.swing.JFrame {
         
         szamitasEsKiiras();
     }//GEN-LAST:event_numDbStateChanged
+
+    private void btnRendelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRendelActionPerformed
+        if(chbSajt.isSelected() == true)
+        {
+            feltet1 = "- sajt";
+        }else{
+            feltet1 = "";
+        }
+        if(chbHagyma.isSelected() == true)
+        {
+            feltet2 = "- hagyma";
+        }else{
+            feltet2 = "";
+        }
+        if(chbAnanasz.isSelected() == true)
+        {
+            feltet3 = "- ananász";
+        }else{
+            feltet3 = "";
+        }
+
+        txaOsszesito.setText(osszegzes1 + " (" + db + "db)" + "\n" + osszegzes3 + "\n" + "feltétek:" + "\n" + feltet1 + "\n" + feltet2 + "\n" + feltet3);
+    }//GEN-LAST:event_btnRendelActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
